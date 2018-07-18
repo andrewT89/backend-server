@@ -1,6 +1,3 @@
-//Requires
-var express = require('express');
-
 //Importacion de libreria del token
 var jwt = require('jsonwebtoken');
 var SEDD = require('../config/config').SEDD;
@@ -26,9 +23,6 @@ exports.verifyToken = function(req, res, next) {
         req.usuario = decoded.usuario;
 
         next();
-        // return res.status(200).json({
-        //     ok: true,
-        //     decoded: decoded
-        // });
+
     });
 };
