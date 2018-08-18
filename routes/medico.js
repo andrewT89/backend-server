@@ -19,8 +19,8 @@ app.get('/', (req, res, next) => {
     Medico.find({})
         .skip(ofSet)
         .limit(5)
-        .populate('usuario', 'nombre email')
-        .populate('hospital', 'nombre email')
+        .populate('usuario', 'nombre email img')
+        .populate('hospital', 'nombre img')
         .exec((err, medicos) => {
             if (err) {
                 return res.status(500).json({

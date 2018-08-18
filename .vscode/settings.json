@@ -1,3 +1,8 @@
 {
-    "git.ignoreLimitWarning": true
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "jshint.options": {
+        "esversion": 6
+    },
+    "jshint.enable": true
 }

@@ -20,7 +20,7 @@ app.get('/', (req, res, next) => {
     var ofSet = req.query.ofSet || 0;
     ofSet = Number(ofSet);
 
-    Usuario.find({}, 'nombre email img role')
+    Usuario.find({}, 'nombre email img role google')
         .skip(ofSet)
         .limit(5)
         .exec((err, usuarios) => {
@@ -46,7 +46,7 @@ app.get('/', (req, res, next) => {
  * Crear usuario
  * ====================================
  */
-app.post('/', mdAuth.verifyToken, (req, res) => {
+app.post('/', (req, res) => {
 
     var body = req.body;
 
@@ -56,6 +56,7 @@ app.post('/', mdAuth.verifyToken, (req, res) => {
         email: body.email,
         password: bcrypt.hashSync(body.password, salt),
         img: body.img,
+        google: false,
         role: body.role
     });
 
@@ -108,6 +109,7 @@ app.put('/:id', mdAuth.verifyToken, (req, res) => {
         //Modelo de datos para actualizar
         usuario.nombre = body.nombre;
         usuario.email = body.email;
+        usuario.img = body.img;
         usuario.role = body.role;
 
         usuario.save((err, _userSave) => {

@@ -88,14 +88,14 @@ function upFile(type, id, nameFile, res) {
                 });
             }
 
-            var pathOld = './uploads/usuarios/' + usuario.image;
+            var pathOld = './uploads/usuarios/' + usuario.img;
 
             //Si existe , elimina la imagen anterior
             if (fs.existsSync(pathOld)) {
                 fs.unlink(pathOld);
             }
 
-            usuario.image = nameFile;
+            usuario.img = nameFile;
             usuario.save((err, _userUpdate) => {
                 return res.status(200).json({
                     ok: true,
@@ -118,14 +118,14 @@ function upFile(type, id, nameFile, res) {
                 });
             }
 
-            var pathOld = './uploads/medicos/' + medico.image;
+            var pathOld = './uploads/medicos/' + medico.img;
 
             //Si existe , elimina la imagen anterior
             if (fs.existsSync(pathOld)) {
                 fs.unlink(pathOld);
             }
 
-            medico.image = nameFile;
+            medico.img = nameFile;
             medico.save((err, _medicoUpdate) => {
                 return res.status(200).json({
                     ok: true,
@@ -148,14 +148,14 @@ function upFile(type, id, nameFile, res) {
                 });
             }
 
-            var pathOld = './uploads/hospitales/' + hospital.image;
+            var pathOld = './uploads/hospitales/' + hospital.img;
 
             //Si existe , elimina la imagen anterior
             if (fs.existsSync(pathOld)) {
                 fs.unlink(pathOld);
             }
 
-            hospital.image = nameFile;
+            hospital.img = nameFile;
             hospital.save((err, _hospitalUpdate) => {
                 return res.status(200).json({
                     ok: true,
